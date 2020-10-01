@@ -18,7 +18,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: ls -a via ssh
-        uses: fifsky/ssh-action@master
+        uses: dosnep/python_project_starter_kit@v.1.x
         with:
           command: |
             cd /tmp
