@@ -17,9 +17,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-        
       - name: ls -a via ssh
         uses: fifsky/ssh-action@master
         with:
@@ -27,6 +24,6 @@ jobs:
             cd /tmp
             ls -a
           host: ${{ secrets.AWS_HOST }}
-          user: root
+          user: ec2-user
           key: ${{ secrets.AWS_PASSWORD }}
 
