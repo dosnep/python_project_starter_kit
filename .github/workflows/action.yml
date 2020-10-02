@@ -25,4 +25,6 @@ jobs:
           AWS_PASSWORD : ${{ secrets.AWS_PASSWORD }}
         run: 
           eval $(ssh-agent -s)
-          ssh-add <(echo "$AWS_PASSWORD")
+          mkdir -p ~/.ssh
+          echo $AWS_PASSWORD > ~/.ssh/id_rsa.pub
+          cat ~/.ssh/id_rsa.pub
