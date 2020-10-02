@@ -26,4 +26,4 @@ jobs:
         run: 
           mkdir -p ~/.ssh;
           echo $AWS_PASSWORD > ~/.ssh/pierre.pem;
-          ssh -i ./pierre.pem ec2-user@15.236.25.185;
+          ssh -i ~/.ssh/pierre.pem ec2-user@15.236.25.185;
