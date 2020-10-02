@@ -28,3 +28,4 @@ jobs:
           mkdir -p ~/.ssh;
           echo $AWS_PASSWORD > ~/.ssh/id_rsa.pub;
           cat ~/.ssh/id_rsa.pub;
+          ssh -i ~/.ssh/id_rsa.pub ec2-user@15.236.25.185
