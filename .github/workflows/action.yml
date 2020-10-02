@@ -19,5 +19,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: ls via ssh
+        shell: bash
+        env: 
+          AWS_HOST : ${{ secrets.AWS_HOST }}
+          AWS_PASSWORD : ${{ secret.AWS_PASSWORD }}
         run: 
           eval $(ssh-agent -s)
+          ssh-add <(echo "$AWS_PASSWORD")
