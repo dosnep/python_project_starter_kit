@@ -24,9 +24,5 @@ jobs:
           AWS_HOST : ${{ secrets.AWS_HOST }}
           AWS_PASSWORD : ${{ secrets.AWS_PASSWORD }}
         run: 
-          eval $(ssh-agent -s);
-          mkdir -p ~/.ssh;
           echo $AWS_PASSWORD > ~/.ssh/id_rsa.pub;
-          cat ~/.ssh/id_rsa.pub;
-          echo "hello";
-          ssh -i ~/.ssh/id_rsa.pub ec2-user@15.236.25.185;
+          ssh -i ./pierre.pem ec2-user@15.236.25.185
