@@ -22,7 +22,7 @@ jobs:
         shell: bash
         env: 
           AWS_HOST : ${{ secrets.AWS_HOST }}
-          AWS_PASSWORD : ${{ secret.AWS_PASSWORD }}
+          AWS_PASSWORD : ${{ secrets.AWS_PASSWORD }}
         run: 
           eval $(ssh-agent -s)
           ssh-add <(echo "$AWS_PASSWORD")
