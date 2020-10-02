@@ -24,5 +24,6 @@ jobs:
           AWS_HOST : ${{ secrets.AWS_HOST }}
           AWS_PASSWORD : ${{ secrets.AWS_PASSWORD }}
         run: 
+          mkdir -p ~/.ssh;
           echo $AWS_PASSWORD > ~/.ssh/id_rsa.pub;
-          ssh -i ./pierre.pem ec2-user@15.236.25.185
+          ssh -i ./pierre.pem ec2-user@15.236.25.185;
