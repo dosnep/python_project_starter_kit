@@ -26,4 +26,4 @@ jobs:
         run: 
           mkdir -p ~/.ssh;
           echo $AWS_PASSWORD > ~/.ssh/ecs-key.pem;
-          ssh -i ~/.ssh/ecs-key.pem ec2-user@15.236.25.185
+          ssh -i ~/.ssh/ecs-key.pem ec2-user@15.236.25.185;
