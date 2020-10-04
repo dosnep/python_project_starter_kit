@@ -2,6 +2,7 @@ help:
 	@echo "dev : Init a dev environment"
 	@echo "clean : Clean repo"
 	@echo "format : Reformat python code" 
+	@echo "test : Test python code" 
 	@echo "package : Build a pex file of your project" 
 
 clean:
@@ -10,8 +11,11 @@ clean:
 dev:
 	@if [ ! -d "./.venv" ]; then python -m venv ./.venv && . ./.venv/bin/activate && pip install -r ./requirements/requirements.txt; fi;
 
-format:	dev
-	@black ./project/*
+format:	
+	@. ./.venv/bin/activate && black ./project/*
 
-package: clean dev format
-	@. ./.venv/bin/activate && if [ ! -d "./dist" ]; then mkdir ./dist; fi; pex . -m project -o ./dist/project.pex --disable-cache
+test:
+	@export PYTHONPATH="$PWD/project" && . ./.venv/bin/activate && python -m project.test
+
+package: clean dev format test
+	@. ./.venv/bin/activate && if [ ! -d "./dist" ]; then mkdir ./dist; fi; pex . -m project -o ./dist/$(name).pex --disable-cache
