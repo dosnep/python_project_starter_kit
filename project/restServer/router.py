@@ -4,7 +4,6 @@ from flask import Flask, make_response, current_app
 
 
 class Router:
-
     def __init__(self, name):
         self.app = Flask(name)
         self.app.add_url_rule("/", "index", self.index)
@@ -17,4 +16,3 @@ class Router:
         response = json.dumps({"payload": "hello world"})
 
         return current_app.response_class(response, mimetype="application/json")
-
