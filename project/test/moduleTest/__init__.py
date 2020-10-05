@@ -5,7 +5,7 @@ from project.test.moduleTest.module_test import ModuleTest
 
 def moduleTestBuilder():
     testChainsBuilder = unittest.TestSuite()
-    testsChainsObject = [ModuleTest("test_message")]
+    testsChainsObject = [ModuleTest("testMessage")]
 
     for obj in testsChainsObject:
         testChainsBuilder.addTest(obj)
