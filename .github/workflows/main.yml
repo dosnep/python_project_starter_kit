@@ -18,7 +18,7 @@ jobs:
     
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: ls via ssh
+      - name: Clone repo git and Build docker image to a remote server
         shell: bash
         env: 
           AWS_HOST : ${{ secrets.AWS_HOST }}
