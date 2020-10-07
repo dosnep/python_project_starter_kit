@@ -23,8 +23,10 @@ jobs:
         env: 
           AWS_HOST : ${{ secrets.AWS_HOST }}
           AWS_PASSWORD : ${{ secrets.AWS_PASSWORD }}
+          AWS_PUB : ${{ secrets.AWS_PUB }}
         run: 
           mkdir -p ~/.ssh;
           echo "$AWS_PASSWORD" > ~/.ssh/ecs-key.pem;
+          echo "$AWS_PUB" > ~/.ssh/known_hosts;
           chmod 400 ~/.ssh/ecs-key.pem;
           ssh -i ~/.ssh/ecs-key.pem ec2-user@$AWS_HOST;
