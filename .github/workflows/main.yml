@@ -18,7 +18,7 @@ jobs:
     
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: ls via ssh
+      - name: Clone repo git and Build docker image to a remote server
         shell: bash
         env: 
           AWS_HOST : ${{ secrets.AWS_HOST }}
@@ -30,4 +30,6 @@ jobs:
           echo "$AWS_PUB" > ~/.ssh/known_hosts;
           chmod 400 ~/.ssh/ecs-key.pem;
           ssh -i ~/.ssh/ecs-key.pem ec2-user@$AWS_HOST ' rm -rf ~/dev/project/*; cd ~/dev/project; 
-          git clone git@github.com:dosnep/python_project_starter_kit.git; cd ~/dev/project/python_project_starter_kit; make package name=web_application;'
+          git clone git@github.com:dosnep/python_project_starter_kit.git; cd ~/dev/project/python_project_starter_kit; make package name=web_application;
+          cd ~/dev/project//python_project_starter_kit/docker; cp ~/dev/project//python_project_starter_kit/dist/web_application.pex .; 
+          sudo docker build . -t web_application; sudo docker container stop web_application_container; sudo docker container prune; sudo docker run --name web_application_container -d -p 5000:5000 -h 0.0.0.0:0.0.0.0 web_application' 
