@@ -27,5 +27,5 @@ jobs:
           mkdir -p ~/.ssh;
           echo "$AWS_PASSWORD" > ~/.ssh/ecs-key.pem;
           cat ~/.ssh/ecs-key.pem;
-          chmod 400 ~/.ssh/ecs-key.pem
+          chmod 400 ~/.ssh/ecs-key.pem;
           ssh -i ~/.ssh/ecs-key.pem ec2-user@$AWS_HOST;
