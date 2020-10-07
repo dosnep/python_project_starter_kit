@@ -6,7 +6,7 @@ name: CI
 # events but only for the v.1.x branch
 on:
   push:
-    branches: [ v.1.x ]
+    branches: [ v.2.x ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
