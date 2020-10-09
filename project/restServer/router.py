@@ -13,6 +13,6 @@ class Router:
         return make_response("Welcome to your Web Application", 200)
 
     def helloWorld(self):
-        response = json.dumps({"payload": "hello world!!! This is a test."})
+        response = json.dumps({"payload": "hello world!!! This is a test. Hello Chadi."})
 
         return current_app.response_class(response, mimetype="application/json")
